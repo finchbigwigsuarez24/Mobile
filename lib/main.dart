@@ -1,19 +1,19 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart'; //importing the material design package, which provides a set of pre-designed widgets and themes for building a visually appealing user interface in Flutter
 
-void main()
+void main() //the main function is the entry point of the application, where the execution starts
 {
- runApp(const MyApp());
+ runApp(const MyApp()); //the runApp function takes a widget and makes it the root of the widget tree, in this case, it creates an instance of MyApp and starts the application
 }
 
-class MyApp extends StatelessWidget
+class MyApp extends StatelessWidget //a stateless widget that represents the entire application. It is immutable and does not have any internal state that can change over time.
 {
   // ignore: use_super_parameters
   const MyApp({Key? key}) : super(key: key); //constructor for the MyApp class, which is a stateless widget that represents the entire application
 
-  @override
+  @override //override the build method to describe how to display the widget in terms of other, lower level widgets
   Widget build(BuildContext context) //build method that describes how to display the widget in terms of other, lower level widgets
   {
-    return MaterialApp
+    return MaterialApp //MaterialApp is a widget that wraps a number of widgets that are commonly required for material design applications. It provides a convenient way to set up the app's theme, routes, and other properties.
     (
       title: 'My Profile App', //title of the app
       debugShowCheckedModeBanner: false, //removes the debug banner
@@ -26,14 +26,14 @@ class MyApp extends StatelessWidget
 class ProfilePage extends StatelessWidget //a stateless widget that represents the profile page of the app
 {
   // ignore: use_super_parameters
-  const ProfilePage({Key? key}) : super(key: key); 
+  const ProfilePage({Key? key}) : super(key: key); //constructor for the ProfilePage class, which is a stateless widget that represents the profile page of the app
 
-  @override
-  Widget build(BuildContext context)
+  @override //override the build method to describe how to display the widget in terms of other, lower level widgets
+  Widget build(BuildContext context) //build method that describes how to display the widget in terms of other, lower level widgets
   {
     return Scaffold //provides a basic structure for the app, including an app bar and a body
     (
-      appBar: AppBar
+      appBar: AppBar //a material design app bar that displays a title and an icon, and has a background color of green
       (
         leading: Icon(Icons.account_circle, size: 45, color: Colors.white),
         title: Text('My Profile', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white)),
@@ -45,79 +45,80 @@ class ProfilePage extends StatelessWidget //a stateless widget that represents t
       (
         child: SingleChildScrollView //allows the content to be scrollable if it exceeds the screen height
         (
-          padding: EdgeInsets.all(24),
-          child: Column
+          padding: EdgeInsets.all(24), //adds padding around the content of the profile page, providing spacing between the edges of the screen and the content itself
+
+          child: Column //a widget that arranges its children in a vertical column, with the crossAxisAlignment property set to center, which centers the children horizontally within the column
           (
-            crossAxisAlignment: CrossAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center, //aligns the children of the column to the center horizontally
             
-            children:
+            children: //a list of widgets that are displayed in the profile page, including a CircleAvatar for the profile picture, Text widgets for the name and occupation, and Card widgets for the contact information and other details
             [
-            SizedBox(height: 10),
+              SizedBox(height: 10),
 
-            CircleAvatar
-            (
-              radius: 100,
-              backgroundImage: NetworkImage('https://scontent.fceb1-2.fna.fbcdn.net/v/t39.30808-6/454263809_506873101750850_5347845284382279208_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=JSx3swejA6wQ7kNvwG9rPX2&_nc_oc=AdnJyNSAWLbAptTgGBS2Mu2P2nMM6S9EtZUCKWjYpv-DLYZkKg9TLn-d_PqyeZ7znfw&_nc_zt=23&_nc_ht=scontent.fceb1-2.fna&_nc_gid=xeXv7dv12n3cayXZlSGFJQ&oh=00_AfuajujFsZGltNae42EyQRfdGuuYDpFvVNlpBary7QVO6A&oe=699894D0'),
-            ),
-
-            SizedBox(height: 15),
-
-            Text('Finch Bigwig S. Suarez', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
-
-            SizedBox(height: 5),
-
-            Text('Student Developer', style: TextStyle(fontSize: 16, color: Colors.grey[700])),
-
-            SizedBox(height: 10),
-
-            Divider(),
-
-            Card
-            (
-              color: Colors.lightGreen[100],
-              child: ListTile
+              CircleAvatar
               (
-                leading: Icon(Icons.email, color: Colors.green),
-                title: Text('finchbigwig.suarez.24@usjr.edu.ph', style: TextStyle(fontWeight: FontWeight.bold),),
-                subtitle: Text('Email'),
+                radius: 100,
+                backgroundImage: NetworkImage('https://scontent.fceb1-2.fna.fbcdn.net/v/t39.30808-6/454263809_506873101750850_5347845284382279208_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=JSx3swejA6wQ7kNvwG9rPX2&_nc_oc=AdnJyNSAWLbAptTgGBS2Mu2P2nMM6S9EtZUCKWjYpv-DLYZkKg9TLn-d_PqyeZ7znfw&_nc_zt=23&_nc_ht=scontent.fceb1-2.fna&_nc_gid=xeXv7dv12n3cayXZlSGFJQ&oh=00_AfuajujFsZGltNae42EyQRfdGuuYDpFvVNlpBary7QVO6A&oe=699894D0'),
               ),
-            ),
 
-            Card
-            (
-              color: Colors.lightGreen[100],
-              child: ListTile
+              SizedBox(height: 15),
+
+              Text('Finch Bigwig S. Suarez', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+
+              SizedBox(height: 5),
+
+              Text('Student Developer', style: TextStyle(fontSize: 16, color: Colors.grey[700])),
+
+              SizedBox(height: 10),
+
+              Divider(),
+
+              Card
               (
-                leading: Icon(Icons.phone, color: Colors.green),
-                title: Text('0943 331 1192', style: TextStyle(fontWeight: FontWeight.bold),),
-                subtitle: Text('Number'),                
+                color: Colors.lightGreen[100],
+                child: ListTile
+                (
+                  leading: Icon(Icons.email, color: Colors.green),
+                  title: Text('finchbigwig.suarez.24@usjr.edu.ph', style: TextStyle(fontWeight: FontWeight.bold),),
+                  subtitle: Text('Email'),
+                ),
               ),
-            ),
 
-            Card
-            (
-              color: Colors.lightGreen[100],
-              child: ListTile
+              Card
               (
-                leading: Icon(Icons.cake, color: Colors.green),
-                title: Text('October 1, 2006', style: TextStyle(fontWeight: FontWeight.bold),),
-                subtitle: Text('Birthday'),
+                color: Colors.lightGreen[100],
+                child: ListTile
+                (
+                  leading: Icon(Icons.phone, color: Colors.green),
+                  title: Text('0943 331 1192', style: TextStyle(fontWeight: FontWeight.bold),),
+                  subtitle: Text('Number'),                
+                ),
               ),
-            ),
 
-            Card
-            (
-              color: Colors.lightGreen[100],
-              child: ListTile
+              Card
               (
-                leading: Icon(Icons.home, color: Colors.green),
-                title: Text('Laray, San Roque, Talisay City, Cebu', style: TextStyle(fontWeight: FontWeight.bold),),
-                subtitle: Text('Address'),
+                color: Colors.lightGreen[100],
+                child: ListTile
+                (
+                  leading: Icon(Icons.cake, color: Colors.green),
+                  title: Text('October 1, 2006', style: TextStyle(fontWeight: FontWeight.bold),),
+                  subtitle: Text('Birthday'),
+                ),
               ),
-            ),
 
-            SizedBox(height: 20),
-          ],
+              Card
+              (
+                color: Colors.lightGreen[100],
+                child: ListTile
+                (
+                  leading: Icon(Icons.home, color: Colors.green),
+                  title: Text('Laray, San Roque, Talisay City, Cebu', style: TextStyle(fontWeight: FontWeight.bold),),
+                  subtitle: Text('Address'),
+                ),
+              ),
+
+              SizedBox(height: 20),
+            ],
           ),
         ),
       ),
